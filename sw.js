@@ -33,20 +33,41 @@ self.addEventListener('activate', e => {
   );
 });
 
-/* Responde do cache primeiro, o que faz o site abrir instantâneo e sem internet.
-   Em paralelo busca a versão nova, para atualizar na próxima abertura. */
+/* Duas estratégias, de propósito.
+
+   PÁGINAS (html, css, js): rede primeiro, cache como rede de segurança.
+   Com internet, ela sempre vê a versão mais nova, então correção de horário
+   chega na hora. Sem internet, abre do cache e funciona igual.
+
+   FOTOS: cache primeiro, porque foto não muda e baixar de novo gasta dados
+   caros no exterior. */
 self.addEventListener('fetch', e => {
   if (e.request.method !== 'GET') return;
-  e.respondWith(
-    caches.match(e.request).then(guardado => {
-      const rede = fetch(e.request).then(resp => {
-        if (resp && resp.status === 200 && resp.type === 'basic') {
+  const url = new URL(e.request.url);
+  if (url.origin !== location.origin) return;
+
+  const ehFoto = /\.(jpg|jpeg|png|webp|svg|ico)$/i.test(url.pathname);
+
+  if (ehFoto) {
+    e.respondWith(
+      caches.match(e.request).then(guardado => guardado || fetch(e.request).then(resp => {
+        if (resp && resp.status === 200) {
           const copia = resp.clone();
           caches.open(VERSAO).then(c => c.put(e.request, copia));
         }
         return resp;
-      }).catch(() => guardado);
-      return guardado || rede;
-    })
+      }))
+    );
+    return;
+  }
+
+  e.respondWith(
+    fetch(e.request).then(resp => {
+      if (resp && resp.status === 200) {
+        const copia = resp.clone();
+        caches.open(VERSAO).then(c => c.put(e.request, copia));
+      }
+      return resp;
+    }).catch(() => caches.match(e.request).then(g => g || caches.match('./index.html')))
   );
 });
