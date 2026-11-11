@@ -1,6 +1,6 @@
 /* Guarda o site inteiro no celular na primeira abertura.
    Trocou alguma coisa no site? Mude o número da versão abaixo. */
-const VERSAO = 'family-trip-v1';
+const VERSAO = 'family-trip-v2';
 
 const ARQUIVOS = [
   './','./index.html','./dias.html','./cidades.html','./rotas.html',
