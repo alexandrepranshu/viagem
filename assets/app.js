@@ -351,3 +351,10 @@ window.addEventListener('DOMContentLoaded', () => {
   const b = el('btnCal'); if (b) b.addEventListener('click', baixarCalendario);
   montarPe();
 });
+
+/* ---------- guarda o site no celular, para abrir sem internet ---------- */
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js').catch(() => {});
+  });
+}
