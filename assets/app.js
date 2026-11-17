@@ -118,7 +118,7 @@ function cartaoHoje(){
 function etiqueta(t){
   const m = {
     voo:['e-voo','✈️ voo'], trem:['e-trem','🚆 trem'],
-    reserva:['e-reserva','🍽️ reserva confirmada'], ingresso:['e-ingresso','🎟️ precisa de ingresso'],
+    reserva:['e-reserva','🍽️ reserva confirmada'], ingresso:['e-ingresso','🎟️ precisa de ingresso'], comprado:['e-reserva','🎟️ ingresso comprado'],
     pendente:['e-pendente','⚠️ ainda sem reserva'], descanso:['e-descanso','☕ descanso']
   };
   return m[t] ? `<span class="etiq ${m[t][0]}">${m[t][1]}</span>` : '';
@@ -235,11 +235,21 @@ function listarIngressos(){
   const alvo = el('ingressos'); if (!alvo) return;
   alvo.innerHTML = INGRESSOS.map(i => `
     <div class="bloco"><div class="dentro">
-      ${i.urgente ? '<span class="selo u">Comprar agora</span>' : '<span class="selo o">Sem urgência</span>'}
+      ${i.comprado ? '<span class="selo o">Comprado</span>' : i.urgente ? '<span class="selo u">Comprar agora</span>' : '<span class="selo o">Sem urgência</span>'}
       <h3>${esc(i.nome)}</h3>
       <div class="par"><div class="k">Quando</div><div class="v"><b>${esc(i.dia)}</b>, ${esc(i.hora)}</div></div>
       <p style="margin-top:10px">${esc(i.obs)}</p>
       ${i.link ? `<a class="botao" target="_blank" rel="noopener" href="${i.link}">Abrir o site oficial</a>` : ''}
+    </div></div>`).join('');
+}
+
+function listarSugestoes(){
+  const alvo = el('sugestoes'); if (!alvo || typeof SUGESTOES === 'undefined') return;
+  alvo.innerHTML = SUGESTOES.map(c => `
+    <div class="bloco"><div class="dentro">
+      <h3>${esc(c.cidade)}</h3>
+      <ul class="pontos">${c.lista.map(r => `<li><a target="_blank" rel="noopener"
+        href="https://www.google.com/maps/search/${encodeURIComponent(r.n + ' ' + c.cidade)}"><b>${esc(r.n)}</b></a>${r.o ? ` · ${esc(r.o)}` : ''}</li>`).join('')}</ul>
     </div></div>`).join('');
 }
 
@@ -347,7 +357,7 @@ window.addEventListener('DOMContentLoaded', () => {
   contagem(); setInterval(contagem, 60000);
   cartaoHoje();
   listarDias(); listarCidades(); listarRotas(); listarHoteis();
-  listarReservas(); listarIngressos(); listarPendencias(); listarEssencial();
+  listarReservas(); listarSugestoes(); listarIngressos(); listarPendencias(); listarEssencial();
   const b = el('btnCal'); if (b) b.addEventListener('click', baixarCalendario);
   montarPe();
 });

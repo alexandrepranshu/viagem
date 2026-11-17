@@ -33,17 +33,6 @@ const HOTEIS = [
 
 /* ---------- PENDÊNCIAS ---------- */
 const ALERTAS = [
-{ id:"jnc", nivel:"u", titulo:"A reserva do JNcQUOI está no dia errado",
-  texto:"Os dois comprovantes estão marcados para <b>quinta-feira, 19 de novembro, às 19h</b>. Nessa hora o grupo ainda está no Brasil. O voo só chega em Lisboa no dia 20, às 6h40.",
-  detalhe:"As duas reservas somam <b>12 lugares</b>, em duas mesas de seis. O grupo é de 15 pessoas, então faltam três. Ao remarcar, pedir 15.<br><br>Sábado à noite em Lisboa é o horário mais disputado da semana. Vale ligar, e não só usar o aplicativo.",
-  acao:"Remarcar para 20 ou 21 de novembro, com 15 lugares" },
-
-{ id:"alh", nivel:"u", titulo:"Ingressos da Alhambra, domingo 29",
-  texto:"É o único item da viagem em que o atraso não tem conserto. Restaurante se troca, trem se remarca, a Alhambra não.",
-  detalhe:"Os Palácios Nasridas recebem <b>300 pessoas a cada meia hora</b>. O horário do ingresso <b>não pode ser alterado</b> depois da compra, e quem não está na entrada na hora marcada não entra. Com 15 pessoas, chegar 30 minutos antes.<br><br>Se o dia 29 estiver esgotado, há três saídas reais: a <b>visita noturna</b> aos Nasridas, que tem cota própria; operadores de turismo que guardam cota; e a modalidade oficial de <b>grupo de 11 a 30 pessoas</b>, que é exatamente o tamanho da família.",
-  acao:"Comprar hoje, no site oficial",
-  link:"https://tickets.alhambra-patronato.es/en/", linkTexto:"Site oficial da Alhambra" },
-
 { id:"alc", nivel:"u", titulo:"Ingressos do Alcázar de Sevilha, segunda 23",
   texto:"O roteiro original diz que não precisa comprar antes. <b>Essa informação está errada.</b>",
   detalhe:"Ingresso online com horário marcado é praticamente obrigatório. A bilheteria só vende se o horário não tiver esgotado online, e a fila de quem compra no dia contorna a Plaza del Triunfo.<br><br>A manhã é o período mais cheio, por causa dos grupos de excursão, e o roteiro prevê 9h30. Com ingresso em mãos, entrar pela fila da <b>Puerta del León</b>, quinze minutos antes do horário.",
@@ -60,15 +49,10 @@ const ALERTAS = [
   detalhe:"Duas perguntas mudam tudo em caso de atraso:<br><br><b>1.</b> Os dois trechos estão no mesmo bilhete? Se estiverem, atraso no primeiro obriga a companhia a reacomodar. Se forem bilhetes separados, o prejuízo é de quem viaja.<br><br><b>2.</b> As malas vão despachadas direto até Brasília, ou precisam ser retiradas em Lisboa?",
   acao:"Confirmar com a companhia aérea" },
 
-{ id:"trem", nivel:"a", titulo:"O trem Granada para Madri não fecha a conta",
-  texto:"O roteiro traz, para o mesmo trecho: saída 11h04, duração 3h56 e chegada às <b>2h38</b>. E num ponto diz direto, em outro diz uma conexão.",
-  detalhe:"11h04 mais 3h56 dá 15h00, e não 14h38. Importa porque o roteiro de Madri começa às 16h30 do mesmo dia.",
-  acao:"Conferir o bilhete real da Renfe" },
-
 { id:"rest", nivel:"a", titulo:"Restaurantes de 15 lugares ainda sem reserva",
-  texto:"Granada está com 'checar reserva' em todas as refeições. Málaga está sem reserva nos jantares. E em Madri ficaram dois nomes em aberto.",
+  texto:"Granada já tem os dois almoços reservados, mas os jantares dos dias 28 e 29 continuam em aberto. Málaga está sem reserva nos jantares. E em Madri ficaram dois nomes em aberto.",
   detalhe:"<b>Sobrino de Botín</b>, numa terça de dezembro, é um dos restaurantes mais procurados da Europa. Ou já está reservado, ou provavelmente não vai dar.<br><br><b>Mercado de San Miguel não funciona para quinze pessoas.</b> É em pé, lotado, e o grupo se perde.",
-  acao:"Reservar Granada, Málaga e Madri" },
+  acao:"Reservar os jantares de Granada, Málaga e Madri" },
 
 { id:"lis1", nivel:"o", titulo:"O primeiro dia em Lisboa pede menos",
   texto:"Chegam às 6h40 depois de voo noturno, e o quarto provavelmente só sai às 14h. O plano é caminhar Restauradores, Rossio, Rua Augusta, Praça do Comércio e Chiado.",
@@ -105,7 +89,7 @@ const DIAS = [
   itens:[
    { h:"10h00", n:"Walk tour do Centro Histórico", o:"Cobre grande parte da cidade. Guardar energia para a noite" },
    { h:"Tarde", n:"Oceanário ou Zoológico", o:"Opcional. Depois de seis horas a pé, dificilmente acontece", mapa:"Oceanário de Lisboa" },
-   { h:"19h00", n:"JNcQUOI Avenida", o:"Data a remarcar, e pedir 15 lugares", tipo:"pendente", mapa:"JNcQUOI Avenida Lisboa" }
+   { h:"19h00", n:"JNcQUOI Avenida", o:"Reserva remarcada e confirmada", tipo:"reserva", mapa:"JNcQUOI Avenida Lisboa" }
   ]},
 { d:22, m:11, sem:"Domingo", cidade:"Lisboa → Sevilha", titulo:"Voo para a Andaluzia", resumo:"Tarde de chegada e descanso",
   itens:[
@@ -163,24 +147,25 @@ const DIAS = [
    { h:"08h15", n:"Saída do hotel", o:"Check-out e conferência de malas com antecedência. O hotel é colado na estação" },
    { h:"09h20", n:"Trem Málaga → Granada", o:"Renfe direto · 1h23 · chega 10h43", tipo:"trem" },
    { h:"10h43", n:"Hotel Barceló Carmen", o:"Confirmar early check-in. Se não houver, deixar as malas na recepção", tipo:"pendente" },
-   { h:"12h30", n:"Almoço no centro", o:"Los Manueles ou Verde Rama Catedral. Reservar antes", tipo:"pendente" },
-   { h:"15h00", n:"Catedral e Capela Real", o:"Entrada opcional, conforme a disposição do grupo", mapa:"Catedral de Granada" },
+   { h:"13h15", n:"Los Manueles García Lorca", o:"Reserva confirmada. Atenção: existem várias unidades do Los Manueles em Granada, e a reserva é na García Lorca", tipo:"reserva", mapa:"Los Manueles García Lorca Granada" },
+   { h:"Tarde", n:"Parada pro doce: Casa Ysla", o:"Na Plaza Bib-Rambla. Provar o pionono, doce tradicional da região: massa delicada embebida em calda, com creme tostado por cima. Uma experiência gastronômica típica!", mapa:"Casa Ysla Plaza Bib-Rambla Granada" },
+   { h:"15h30", n:"Catedral e Capela Real", o:"Entrada opcional, conforme a disposição do grupo", mapa:"Catedral de Granada" },
    { h:"18h00", n:"Plaza Nueva", o:"Movimento do centro histórico, e volta ao hotel antes do jantar", mapa:"Plaza Nueva Granada" },
    { h:"Jantar", n:"La Cueva de 1900", o:"Jantar cedo, sem roteiro longo depois", tipo:"pendente" }
   ]},
 { d:29, m:11, sem:"Domingo", cidade:"Granada", titulo:"Alhambra", resumo:"O dia mais importante da viagem",
   itens:[
-   { h:"08h00", n:"Chegar à Alhambra", o:"Com 15 pessoas, trinta minutos antes do horário do ingresso. Quem chega atrasado não entra", tipo:"ingresso" },
-   { h:"08h30", n:"Palácios Nasridas, Alcazaba e Generalife", o:"Pisos irregulares e escadas. Planejar paradas. Carrinho de bebê não entra em algumas áreas", tipo:"ingresso", mapa:"Alhambra Granada" },
-   { h:"13h00", n:"Almoço perto do hotel", o:"Não atravessar a cidade com o grupo cansado. La Cuchara de Carmela é uma opção", tipo:"pendente" },
+   { h:"08h00", n:"Chegar à Alhambra", o:"Ingressos comprados. Com 15 pessoas, chegar trinta minutos antes do horário marcado. Quem chega atrasado não entra", tipo:"comprado" },
+   { h:"08h30", n:"Palácios Nasridas, Alcazaba e Generalife", o:"Pisos irregulares e escadas. Planejar paradas. Carrinho de bebê não entra em algumas áreas", tipo:"comprado", mapa:"Alhambra Granada" },
+   { h:"13h15", n:"Asador Contrapunto", o:"Reserva confirmada", tipo:"reserva", mapa:"Asador Contrapunto Granada" },
    { h:"16h00", n:"Mirador de San Nicolás", o:"Opcional. Ir de táxi, e não subir a pé pelo Albaicín. Dividir em vários carros", mapa:"Mirador de San Nicolás" },
    { h:"19h30", n:"Jantar de despedida", o:"Chikito ou Palacio Andaluz Almona. Reservar antes", tipo:"pendente" }
   ]},
 { d:30, m:11, sem:"Segunda", cidade:"Granada → Madri", titulo:"Trem longo", resumo:"Chegada e primeiro passeio",
   itens:[
    { h:"Manhã", n:"Check-out e malas", o:"Comprar comida para o trem" },
-   { h:"11h04", n:"Trem Granada → Madri", o:"Cerca de quatro horas. Conferir o horário real e se há conexão", tipo:"trem" },
-   { h:"Tarde", n:"Hotel Liabeny", o:"Perto da Puerta del Sol. Deixar as malas e fazer uma pausa" },
+   { h:"11h04", n:"Trem Granada → Madri", o:"Chega em Madrid-Puerta de Atocha às 14h38", tipo:"trem" },
+   { h:"14h38", n:"Chegada em Atocha e Hotel Liabeny", o:"Perto da Puerta del Sol. Deixar as malas e fazer uma pausa" },
    { h:"16h30", n:"Puerta del Sol e Plaza Mayor", o:"Luzes de Natal. Muito movimento, então combinar ponto de encontro antes de entrar na multidão", mapa:"Plaza Mayor Madrid" },
    { h:"18h00", n:"Chocolatería San Ginés", o:"Chocolate quente com churros. Programa para as crianças e pausa para os adultos", mapa:"Chocolatería San Ginés" },
    { h:"Jantar", n:"La Bola ou Casa Labra", o:"Perto do hotel. Reservar para 15 pessoas", tipo:"pendente" }
@@ -221,8 +206,8 @@ const ROTAS = [
    obs:"Renfe direto, 2h08. Levar comida: chegam depois das 15h sem ter almoçado direito." },
  { data:"28 de novembro", de:"Málaga-María Zambrano", para:"Granada", sai:"09h20", chega:"10h43", tipo:"trem",
    obs:"Renfe direto, 1h23. O hotel de Málaga é colado na estação." },
- { data:"30 de novembro", de:"Granada", para:"Madrid-Puerta de Atocha", sai:"11h04", chega:"a conferir", tipo:"trem",
-   obs:"Duração informada de 3h56, e a chegada registrada no roteiro não fecha com a conta. Conferir o bilhete.", alerta:true },
+ { data:"30 de novembro", de:"Granada", para:"Madrid-Puerta de Atocha", sai:"11h04", chega:"14h38", tipo:"trem",
+   obs:"Levar comida para o trem. O passeio em Madri começa às 16h30." },
  { data:"3 de dezembro", de:"Madri", para:"Lisboa", sai:"07h40", chega:"08h05", tipo:"voo",
    obs:"Saída do hotel por volta das 5h da manhã." },
  { data:"3 de dezembro", de:"Lisboa", para:"Brasília", sai:"09h55", chega:"16h45", tipo:"voo",
@@ -266,17 +251,16 @@ const CIDADES = [
 /* ---------- RESERVAS ---------- */
 const RESERVAS = [
  { dia:"20/11", cidade:"Lisboa", nome:"Solar dos Presuntos", hora:"19h00", status:"ok", obs:"Confirmada" },
- { dia:"21/11", cidade:"Lisboa", nome:"JNcQUOI Avenida", hora:"19h00", status:"erro",
-   obs:"Comprovantes marcados para 19/11, quando o grupo ainda está no Brasil. E somam 12 lugares para 15 pessoas" },
+ { dia:"21/11", cidade:"Lisboa", nome:"JNcQUOI Avenida", hora:"19h00", status:"ok", obs:"Remarcada para 21/11. Confirmada" },
  { dia:"22/11", cidade:"Sevilha", nome:"Casa Robles", hora:"19h30", status:"ok", obs:"Confirmada" },
  { dia:"23/11", cidade:"Sevilha", nome:"Seis Tapas Bar", hora:"14h00", status:"ok", obs:"Confirmada" },
  { dia:"24/11", cidade:"Sevilha", nome:"La Casa de María", hora:"13h20", status:"ok", obs:"Confirmada" },
  { dia:"24/11", cidade:"Sevilha", nome:"Jantar de celebração", hora:"Noite", status:"falta", obs:"Triana ou Pizza Alimentari. Sem reserva" },
  { dia:"26/11", cidade:"Málaga", nome:"Tatanegro", hora:"15h15", status:"ok", obs:"Confirmada" },
  { dia:"27/11", cidade:"Málaga", nome:"Atrezzo", hora:"14h00", status:"ok", obs:"Confirmada" },
- { dia:"28/11", cidade:"Granada", nome:"Almoço no centro", hora:"12h30", status:"falta", obs:"Los Manueles ou Verde Rama" },
+ { dia:"28/11", cidade:"Granada", nome:"Los Manueles García Lorca", hora:"13h15", status:"ok", obs:"Confirmada. Cuidado para não confundir: existem várias unidades do mesmo restaurante, e a reserva é na García Lorca" },
  { dia:"28/11", cidade:"Granada", nome:"La Cueva de 1900", hora:"Jantar", status:"falta", obs:"Sem reserva" },
- { dia:"29/11", cidade:"Granada", nome:"Almoço pós-Alhambra", hora:"13h00", status:"falta", obs:"La Cuchara de Carmela" },
+ { dia:"29/11", cidade:"Granada", nome:"Asador Contrapunto", hora:"13h15", status:"ok", obs:"Confirmada. Almoço depois da Alhambra" },
  { dia:"29/11", cidade:"Granada", nome:"Jantar de despedida", hora:"19h30", status:"falta", obs:"Chikito ou Palacio Andaluz Almona" },
  { dia:"30/11", cidade:"Madri", nome:"La Bola ou Casa Labra", hora:"Jantar", status:"falta", obs:"Perto do hotel" },
  { dia:"01/12", cidade:"Madri", nome:"La Bola", hora:"13h00", status:"falta", obs:"Cocido madrileño, servido em etapas" },
@@ -285,10 +269,33 @@ const RESERVAS = [
  { dia:"02/12", cidade:"Madri", nome:"Jantar de despedida", hora:"Noite", status:"falta", obs:"Perto do Liabeny" }
 ];
 
+/* ---------- OUTRAS SUGESTÕES DE RESTAURANTES ---------- */
+const SUGESTOES = [
+ { cidade:"Málaga", lista:[
+   { n:"El Pimpi", o:"Clássico espanhol" },
+   { n:"Casa Lola", o:"Bar de tapas" },
+   { n:"La Tranca", o:"Mais animado" },
+   { n:"Asador Dona Inês", o:"Carnes" },
+   { n:"La Bodega Dona Aires", o:"Bar de vinhos" },
+   { n:"La Fontana", o:"Massas, e o lugar é bonito" },
+   { n:"Street Food Burger Málaga", o:"Hambúrguer" },
+   { n:"Casa Mira", o:"Sorvete" },
+   { n:"Dulce Canela", o:"Doces" },
+   { n:"Gusto", o:"" },
+   { n:"Casa Aranda", o:"Churros e chocolate quente" }
+ ]},
+ { cidade:"Granada", lista:[
+   { n:"El Oreja Cocina Lenta", o:"Carnes" },
+   { n:"Café Fútbol", o:"Merienda, churros" },
+   { n:"Heladería Los Italianos", o:"Sorvete" },
+   { n:"Los Patos", o:"Contemporâneo" }
+ ]}
+];
+
 /* ---------- INGRESSOS ---------- */
 const INGRESSOS = [
- { nome:"Alhambra e Generalife", dia:"29/11, domingo", hora:"manhã", urgente:true,
-   obs:"Palácios Nasridas com horário marcado, que não pode ser alterado. 300 pessoas a cada meia hora. Comprar com urgência.",
+ { nome:"Alhambra e Generalife", dia:"29/11, domingo", hora:"manhã", urgente:false, comprado:true,
+   obs:"Ingressos comprados. O horário dos Palácios Nasridas não pode ser alterado, e quem chega atrasado não entra. Com 15 pessoas, chegar 30 minutos antes.",
    link:"https://tickets.alhambra-patronato.es/en/" },
  { nome:"Real Alcázar de Sevilha", dia:"23/11, segunda", hora:"09h30", urgente:true,
    obs:"Ingresso online com horário marcado. Entrar pela Puerta del León, 15 minutos antes.",
