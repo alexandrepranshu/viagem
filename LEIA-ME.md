@@ -50,7 +50,7 @@ na hora, sem conta e sem configuração. É o caminho mais rápido de todos.
 | Arquivo | Para que serve |
 |---|---|
 | `index.html` | Capa, contagem regressiva e o plano de hoje |
-| `dias.html` | Os catorze dias, hora a hora |
+| `dias.html` | Os quinze dias, hora a hora |
 | `cidades.html` | Clima, mala e o que ver em cada cidade |
 | `rotas.html` | Voos, trens e os cinco hotéis |
 | `reservas.html` | Restaurantes e ingressos |
@@ -86,7 +86,7 @@ para trocar tudo pelas fotos da família e o site vira álbum.
 - **Contagem regressiva** para a partida, que vira "boa viagem" no dia 19.
 - **O plano de hoje** aparece sozinho na página inicial durante a viagem.
 - **Botão de letra maior**, em três tamanhos, com a escolha salva no aparelho.
-- **Exportar para o calendário**, com 60 compromissos e alarme automático: três horas antes de
+- **Exportar para o calendário**, com 61 compromissos e alarme automático: três horas antes de
   cada voo e trem, uma hora antes dos passeios. Cada pessoa instala no próprio celular.
 - **Marcar pendência como resolvida**, salvo no aparelho de quem marcou.
 - **Lista da mala** com marcação, idem.
